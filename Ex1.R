@@ -112,4 +112,45 @@
 # 14.12 Няма Error когато достъпим несъществуващ индекс, а връща NA, Ако
 # добавим елемент на далечна позиция, ще запълни с NA и ще промени дължината
 
+# 15. Функции
+# f1 <- function(){return(10)}
+# func1 <- function(a,b,c) {return(a+b+c)}
+# func1(a = 10, b = 20, c = 10)
+# return може да се skip-не
 
+# 16. if statement
+#   if (missing(a)) {a <- 14}
+
+# 17. If-else условия
+# func2 <- function(a) {if(a == T) return(T) else return(F)}
+# if() {
+# 
+# } else if() {
+#   
+# } else {
+#   
+# }
+
+# 18. Цикли
+#   for(....)
+#   for(i in v1) - идеята на forEach
+#   for(i in v7) {print(i)}
+# 18.1 Обхождане по индекс
+#   for(i in 1:length(v7)) - идеята е че създава нов вектор с индексите
+#     {print(v7[i])}
+#   for(i in length(v7):1)
+#     {print(v7[i])}
+#   for(i in seq(from = 1, to = length(v7), by = 1))
+# continue = next - продължаваме със следващата итерация
+
+# 19. While
+#   while(counter < 5) {}
+
+# 20, do-while - Ще повтаря докато не му кажем да спре
+#   repeat { .... 
+#       if(...) 
+#           break
+# }
+
+# 21 v7 <- letters[1:5]
+#  v7 <- LETTERS[1:5]
