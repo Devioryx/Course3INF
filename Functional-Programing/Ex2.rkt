@@ -84,3 +84,5 @@
 
 
 |#
+
+;(define (len1 x) (if (empty x) 0 (+ 1 (len1 (cdr x)))))
