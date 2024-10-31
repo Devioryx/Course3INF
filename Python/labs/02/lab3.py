@@ -1,21 +1,4 @@
 # Write your code here
-from collections import deque
-
-def take2(iterable, n):
-    if n >= 0:
-        iterator = iter(iterable)
-        count = 0
-        while count < n:
-            try:
-                yield next(iterator)
-                count += 1
-            except StopIteration:
-                break
-    else:
-        d = deque(iterable, maxlen=abs(n))
-        for item in d:
-            yield item
-
 def take(iterable, n):
     if n >= 0:
         for count, item in enumerate(iterable):
