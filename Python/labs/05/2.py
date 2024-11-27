@@ -3,9 +3,9 @@ import os
 def caesar_cipher(s: str, k: int) -> str:
     return ''.join([chr((ord(c) - 97 + k) % 26 + 97) for c in s])
 
-def caesar_cipher2(s: str, k: int) -> str:
+def caesar_cipher2(string: str, k: int) -> str:
     result = ''
-    for x in s:
+    for x in string:
         if x == ' ':
             result += x
         elif x.isupper():
@@ -19,9 +19,17 @@ def caesar_cipher2(s: str, k: int) -> str:
     return result
 
 class LAIKA:
-    def __init__(self, directory: str, caesar_key: int) -> None:
-        self.directory = directory
-        self.caesar_key = caesar_key
+    def __init__(self, directory_path: str, caesar_key: int) -> None:
+        self._directory_path = directory_path
+        self._caesar_key = caesar_key
+
+    @property 
+    def directory_path(self) -> str:
+        return self._directory_path
+    
+    @property
+    def caesar_key(self) -> int:
+        return self._caesar_key
 
     def encode(self, text: str, n: int) -> list[str]:
         text_length = len(text)
@@ -73,12 +81,12 @@ class LAIKA:
             filenames.append(filename)
 
         for filename in filenames:
-            path = os.path.join(self.directory, filename)
+            path = os.path.join(self.directory_path, filename)
             if os.path.exists(path):
                 raise FileExistsError(f"File {path} already exists.")
             
         for idx, (filename, item) in enumerate(zip(filenames, encoded_parts)):
-            path = os.path.join(self.directory, filename)
+            path = os.path.join(self.directory_path, filename)
             next_file_name = filenames[idx + 1] if idx + 1 < len(filenames) else ''
 
             with open(path, 'w') as f:
@@ -92,8 +100,8 @@ class LAIKA:
 
         current_filename = filename
         
-        while current_filename:
-            path = os.path.join(self.directory, current_filename)
+        while current_filename != '':
+            path = os.path.join(self.directory_path, current_filename)
             if not os.path.exists(path):
                 raise FileNotFoundError(f"File {path} not found.")
             
