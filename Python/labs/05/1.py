@@ -24,7 +24,7 @@ class InvalidPriceError(Exception):
         super().__init__(f"Invalid price: {item_price} for item {item_name}")
 
 class ListFileError(Exception):
-    def __init__(self, filepath) -> None:
+    def __init__(self, filepath: str) -> None:
         self.filepath = filepath
         super().__init__(f"Cannot read file: {filepath}")
 
